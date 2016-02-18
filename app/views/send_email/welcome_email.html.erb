@@ -1,0 +1,8 @@
+
+
+<p>
+  <%= "Please click to the below link to varify your email address" %>
+</p>
+<p>
+	<%= link_to "Verify" , "http://localhost:3000/api/users/varify_email?email=#{@user.email}" %>
+	</p>

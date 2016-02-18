@@ -1,0 +1,37 @@
+<div class="container">
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+            <% pluralize(@user.errors.count, "error")%>
+            prohibited this user from being saved:  
+        </h2>
+        <p>There were problems with the following fields:</p>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+        </ul>   
+    </div>
+
+<% end %>
+<table>
+<%= form_for @user, :url => {:controllers=>"users", :action=>"create"} , html: { method: :post } do | i |%>
+<tr>
+<td><%= i.label :name%></td>
+<td><%= i.text_field :name%></td>
+</tr>
+<tr>
+<td><%= i.label :email%></td>
+<td><%= i.text_field :email%></td>
+</tr>
+<tr>
+<td><%= i.label :password%></td>
+<td><%= i.password_field :password%></td>
+</tr>
+
+<tr>
+	<td><%= i.submit "Save"%></td>
+	<%end%>
+<tr>
+</table>
+</div>

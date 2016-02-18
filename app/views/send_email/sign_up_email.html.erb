@@ -1,0 +1,8 @@
+
+
+<p>
+  <%= "Please click to the below link to sign up" %>
+</p>
+<p>
+	<%= link_to "Sign up" , "http://localhost:3000/api/users/new?email=#{@email}&invitation_id=#{@user.id}" %>
+	</p>
